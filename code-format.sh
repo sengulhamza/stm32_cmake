@@ -1,0 +1,1 @@
+./tools/format.sh --recursive "src/drv/*.c" "src/drv/*.h" "src/app/*.c" "src/app/*.h"
