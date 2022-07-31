@@ -3,6 +3,5 @@
 #include <stdint.h>
 
 void user_io_process_start(void);
-void user_io_task_suspend();
 
 #endif
