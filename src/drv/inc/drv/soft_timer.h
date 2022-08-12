@@ -10,7 +10,7 @@ typedef enum {
     TIMER_MAX
 } timer_num_e;
 
-#define TIMER_COUNT         TIMER_MAX       // istenilen soft counter sayisi
+#define TIMER_COUNT         TIMER_MAX
 
 void SoftTimer_Init(void);
 void SoftTimer_ISR(void);

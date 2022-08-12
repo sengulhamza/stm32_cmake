@@ -6,7 +6,7 @@
 #include "app/app_tasks.h"
 #include "app/user_io.h"
 #include "drv/io.h"
-#include "drv/softTimer.h"
+#include "drv/soft_timer.h"
 
 #define BUTTON_DEBOUNCE_DELAY       100
 #define BUTTON_MODE_1_INTERVAL      BUTTON_DEBOUNCE_DELAY

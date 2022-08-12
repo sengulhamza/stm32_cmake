@@ -1,13 +1,10 @@
-#include "softTimer.h"
+#include "soft_timer.h"
 
-//
-// soft timers array
-//
 typedef struct {
-    bool            IsRunning;      // timer calisma durumu
-    volatile bool   Timeout;        // timer tamamlanma durumu
-    uint32_t        SetTime;        // timer suresi
-    uint32_t        Time;           // aktif sure
+    bool            IsRunning;
+    volatile bool   Timeout;
+    uint32_t        SetTime;
+    uint32_t        Time;
 } STimerType;
 
 static STimerType SoftTimers[TIMER_COUNT];
@@ -24,15 +21,6 @@ void SoftTimer_Init(void)
         SoftTimers[i].Time = 0;
         SoftTimers[i].Timeout = false;
     }
-
-    //
-    // !! !! !!
-    //
-    // burada islemcinin herhangi bir timer arabirimi 1ms'de bir kesme �retecek sekilde init edilecek
-    // bu kesme fonksiyonu (ISR) icerisinde SoftTimer_ISR fonskiyonu cagirilacak
-    //
-    // !! !! !!
-    //
 }
 
 void SoftTimer_SetTimer(uint8_t TimerNo, uint32_t SetTimeMs)
