@@ -1,6 +1,6 @@
 set(sources
    src/io.c
-   src/softTimer.c
+   src/soft_timer.c
 )
 
 add_library(drv ${sources})
