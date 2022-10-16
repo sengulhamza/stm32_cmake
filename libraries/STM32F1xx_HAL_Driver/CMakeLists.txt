@@ -69,14 +69,16 @@ else()
 set(STM32F1_LIB_SRC ${STM32F1_LL_SRC})
 endif()
 
-add_library(stm32f1xx_hal ${STM32F1_LIB_SRC})
+add_library(stm32f1xx ${STM32F1_LIB_SRC})
+target_link_libraries(stm32f1xx PUBLIC cmsis)
+target_include_directories(stm32f1xx PUBLIC ../hal_conf)
+target_include_directories(stm32f1xx PUBLIC Inc)
+
+target_compile_definitions(stm32f1xx PUBLIC ${MCU_FAMILY})
+
 if(USE_LL_LIB)
-    target_compile_definitions(stm32f1xx_hal PUBLIC -DUSE_FULL_LL_DRIVER)
+    target_compile_definitions(stm32f1xx PUBLIC -DUSE_FULL_LL_DRIVER)
 endif()
 if(USE_HAL_LIB)
-    target_compile_definitions(stm32f1xx_hal PUBLIC -DUSE_HAL_DRIVER)
+    target_compile_definitions(stm32f1xx PUBLIC -DUSE_HAL_DRIVER)
 endif()
-target_link_libraries(stm32f1xx_hal PUBLIC cmsis)
-target_include_directories(stm32f1xx_hal PUBLIC
-  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/Inc>
-  PRIVATE Src)

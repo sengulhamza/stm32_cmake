@@ -108,7 +108,7 @@ target_link_libraries(stm32f4xx PUBLIC cmsis)
 target_include_directories(stm32f4xx PUBLIC ../hal_conf)
 target_include_directories(stm32f4xx PUBLIC Inc)
 
-target_compile_definitions(stm32f4xx PUBLIC ${MCU_FAMILY})
+target_compile_definitions(stm32f4xx PUBLIC ${MCU_NAME})
 if(USE_LL_LIB)
     target_compile_definitions(stm32f4xx PUBLIC -DUSE_FULL_LL_DRIVER)
 endif()

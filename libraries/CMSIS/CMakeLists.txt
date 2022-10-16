@@ -1,5 +1,11 @@
 # Add libraries
 add_library(cmsis INTERFACE)
 target_include_directories(cmsis INTERFACE Core/Include) 
-target_include_directories(cmsis INTERFACE Device/ST/STM32F4xx/Include)
-target_compile_definitions(cmsis INTERFACE -D ${MCU_FAMILY})
+if(MCU_FAMILY MATCHES STM32F4xx)
+  message("-- STM32F4xx build")
+  target_include_directories(cmsis INTERFACE Device/ST/STM32F4xx/Include)
+elseif(MCU_FAMILY MATCHES STM32F1xx)
+    message("-- STM32F1xx build")
+    target_include_directories(cmsis INTERFACE Device/ST/STM32F1xx/Include)
+endif()
+target_compile_definitions(cmsis INTERFACE -D${MCU_FAMILY})

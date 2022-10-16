@@ -16,7 +16,7 @@ find_package(Openocd)
 set(application_name "stm32_cmake")
 
 cmake_policy(SET CMP0048 NEW)
-project (${application_name} VERSION 1.1.2 LANGUAGES C CXX ASM)
+project (${application_name} VERSION 0.1.1 LANGUAGES C CXX ASM)
 
 configure_file(${CMAKE_SOURCE_DIR}/src/app/inc/app/version.h.in
   ${CMAKE_SOURCE_DIR}/src/app/inc/app/version.h)
@@ -26,8 +26,8 @@ include(CMake/platform.cmake)
 
 # Target-specific flags
 set(MCU_ARCH ARMCM3)
-set(MCU_FAMILY STM32F407xx)
-set(MCU_NAME STM32F407VGT6U)
+set(MCU_FAMILY STM32F4xx)
+set(MCU_NAME STM32F407xx)
 set(__FPU_PRESENT 0)
 option(USE_LL_LIB "Enable LL library" ON)
 option(USE_HAL_LIB "Enable HAL library" ON)
